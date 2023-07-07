@@ -16,8 +16,9 @@ def send_notification():
     # Get the current time in the London timezone
     now = datetime.now(LONDON_TZ)
     hour = now.hour
+    if 8 <= hour < 18:
 
-# Set the URL of your static webpage with the message
+        # Set the URL of your static webpage with the message
         message_url = "https://atoned44.github.io/protection/"
         
         # Set the notification payload with the link to the message and other parameters
@@ -39,7 +40,7 @@ def send_notification():
             print(f"Failed to send notification: {e}")
 
 # Schedule the send_notification function to run every 2 hours
-schedule.every(2).hours.do(send_notification)
+schedule.every(3).hours.do(send_notification)
 
 # Run the scheduled tasks indefinitely
 while True:
