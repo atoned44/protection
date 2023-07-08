@@ -1,5 +1,3 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
 import os
 import requests
 from datetime import datetime
@@ -42,14 +40,6 @@ def send_notification():
     except requests.exceptions.Timeout as e:
         logging.error(f"Failed to send notification due to timeout: {e}. Retrying in 5 minutes.")
         time.sleep(300)
-        send_notification()
 
-# Create a scheduler instance and add a cron trigger for weekdays and weekends
-scheduler = BlockingScheduler(timezone=LONDON_TZ)
-weekday_trigger = CronTrigger(day_of_week='mon-fri', hour='8-18/3')
-weekend_trigger = CronTrigger(day_of_week='sat,sun', hour=9)
-scheduler.add_job(send_notification, weekday_trigger)
-scheduler.add_job(send_notification, weekend_trigger)
-
-# Start the scheduler
-scheduler.start()
+# run the function
+send_notification()
