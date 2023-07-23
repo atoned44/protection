@@ -25,7 +25,7 @@ def send_notification():
     # Set the notification payload with the link to the message and other parameters
     payload = {
         "k": pushsafer_access_key,
-        "m": f"Recite this spell at {message_url}",
+        "m": f"Recite your incantations, spells & mantras @ {message_url}",
         "u": message_url,
         "s": "1",
     }
