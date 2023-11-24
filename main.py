@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def send_notification():
     # Get the current time in the London timezone
     now = datetime.now(LONDON_TZ)
-    hour = now.hour+1
+    hour = now.hour
 
     # Set the URL of your static webpage with the message
     message_url = "https://atoned44.github.io/protection/"
